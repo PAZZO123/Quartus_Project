@@ -1,0 +1,38 @@
+# Word temp files
+~$*.docx
+
+# ModelSim / Questa compiled libraries
+sim_fa/
+sim_mips/
+sim_mips2/
+sim_work/
+transcript
+vsim.wlf
+*.wlf
+
+# Quartus compiled output folders
+alu/
+full_adder/
+mips/
+mux4to1/
+db/
+incremental_db/
+output_files/
+greybox_tmp/
+*.qpf
+*.qsf
+*.sof
+*.pof
+*.jdi
+*.pin
+*.smsg
+*.rpt
+*.summary
+
+# Debug / automation logs
+focus_debug.txt
+uia_log.txt
+seq_log.txt
+
+# node_modules (if any)
+node_modules/
