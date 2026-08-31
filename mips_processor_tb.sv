@@ -1,8 +1,17 @@
-// Testbench for Single-Cycle MIPS Processor
-// Tests: ADD, SUB, AND, OR, SLT, LW, SW, BEQ
-// Register initialisation: $t0=0, $t1=5, $t3=10, $t4=4
 `timescale 1ns/1ps
-
+// =============================================================
+// Testbench: Single-Cycle MIPS Processor
+// Program executed (see imem ROM):
+//   Cycle 1 : addi $t0,$zero,5      R[8]  = 5
+//   Cycle 2 : addi $t1,$zero,10     R[9]  = 10
+//   Cycle 3 : add  $t2,$t0,$t1      R[10] = 5+10 = 15
+//   Cycle 4 : sub  $t3,$t1,$t0      R[11] = 10-5 = 5
+//   Cycle 5 : andi $t4,$t0,3        R[12] = 5&3  = 1
+//   Cycle 6 : sw   $t2,0($zero)     Mem[0]= 15
+//   Cycle 7 : lw   $s0,0($zero)     R[16] = 15
+//   Cycle 8 : beq  $t0,$t0,+1       branch taken -> PC+12
+//   Cycles 9-30: NOP (hold final values visible on wave bars)
+// =============================================================
 module mips_processor_tb;
 
     logic        clk, reset;
@@ -16,51 +25,45 @@ module mips_processor_tb;
         .readdata(readdata)
     );
 
-    // 10ns clock
+    // 10 ns clock (50 MHz)
     initial clk = 0;
     always #5 clk = ~clk;
 
-    // Pre-load key registers before simulation starts
+    // Stimulus + console log
     initial begin
-        force dut.rf.rf[8]  = 32'h00000000;   // $t0 = 0
-        force dut.rf.rf[9]  = 32'h00000005;   // $t1 = 5
-        force dut.rf.rf[10] = 32'h00000000;   // $t2 = 0
-        force dut.rf.rf[11] = 32'h0000000A;   // $t3 = 10
-        force dut.rf.rf[12] = 32'h00000004;   // $t4 = 4
-        #1;
-        release dut.rf.rf[8];
-        release dut.rf.rf[9];
-        release dut.rf.rf[10];
-        release dut.rf.rf[11];
-        release dut.rf.rf[12];
-    end
-
-    // Monitor signals
-    initial begin
-        $display("=== MIPS Single-Cycle Processor Testbench ===");
-        $display("  Time  |    PC    | Instruction |   ALUout   | WriteData");
-        $display("--------+----------+-------------+------------+----------");
+        $display("=== Single-Cycle MIPS Processor Testbench ===");
+        $display("Cycle |    PC    | Instruction |  ALUout  | WriteData| ReadData | $t0| $t1| $t2| $t3| $t4|$s0");
+        $display("------+----------+-------------+----------+----------+----------+----+----+----+----+----+---");
 
         reset = 1;
-        @(posedge clk); @(posedge clk);
+        @(posedge clk);
+        @(posedge clk);
         reset = 0;
 
-        // Run 10 cycles (covers all imem instructions)
-        repeat(10) begin
+        // Run 30 cycles: 8 active instructions + 22 NOP hold cycles
+        // The extra cycles make each final register value visible as a
+        // wide bar with the decimal number printed on it in ModelSim.
+        repeat (30) begin
             @(posedge clk);
             #1;
-            $display(" %5t  | %08h | %08h    | %08h   | %08h",
-                     $time, pc, instr, aluout, writedata);
+            $display("  %3d | %08h | %08h  | %08h | %08h | %08h | %2d | %2d | %2d | %2d | %2d | %2d",
+                     ($time / 10) - 1,
+                     pc, instr, aluout, writedata, readdata,
+                     dut.rf.rf[8],  dut.rf.rf[9],  dut.rf.rf[10],
+                     dut.rf.rf[11], dut.rf.rf[12], dut.rf.rf[16]);
         end
 
-        $display("--------+----------+-------------+------------+----------");
-        $display("=== Simulation Complete: %0t ns ===", $time);
+        $display("------+----------+-------------+----------+----------+----------+----+----+----+----+----+---");
+        $display("Expected: $t0=5  $t1=10  $t2=15  $t3=5  $t4=1  $s0=15");
+        $display("=== Simulation Complete at %0t ns ===", $time);
         $finish;
     end
 
-    // Timeout guard
+    // Safety timeout
     initial begin
-        #500; $display("TIMEOUT"); $finish;
+        #1500;
+        $display("TIMEOUT — simulation did not finish normally");
+        $finish;
     end
 
 endmodule

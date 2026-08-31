@@ -1,0 +1,247 @@
+m255
+K3
+13
+cModel Technology
+Z0 dC:\Users\USER\Documents\MIPS_Project\sim_mips_run
+valu_32bit
+Z1 DXx6 sv_std 3 std 0 22 F[19LRNL:5;XmIFh[XOPn1
+!i10b 1
+!s100 Kg]H7Z4RG[UIZWVV9lkTR1
+IRzkBz<5Z^[_B1NUUeig^73
+V0@TZUmLoEK6J<n:EoIF?m1
+Z2 !s105 alu_32bit_sv_unit
+S1
+Z3 dC:\Users\USER\Documents\MIPS_Project\sim_mips_run
+Z4 w1778236687
+Z5 8C:/Users/USER/Documents/MIPS_Project/alu_32bit.sv
+Z6 FC:/Users/USER/Documents/MIPS_Project/alu_32bit.sv
+L0 11
+Z7 OV;L;10.1d;51
+r1
+!s85 0
+31
+Z8 !s108 1778367449.866000
+Z9 !s107 C:/Users/USER/Documents/MIPS_Project/mips_processor_tb.sv|C:/Users/USER/Documents/MIPS_Project/mips_processor.sv|C:/Users/USER/Documents/MIPS_Project/alu_control.sv|C:/Users/USER/Documents/MIPS_Project/alu_32bit.sv|
+Z10 !s90 -reportprogress|300|-sv|-quiet|C:/Users/USER/Documents/MIPS_Project/alu_32bit.sv|C:/Users/USER/Documents/MIPS_Project/alu_control.sv|C:/Users/USER/Documents/MIPS_Project/mips_processor.sv|C:/Users/USER/Documents/MIPS_Project/mips_processor_tb.sv|
+!s101 -O0
+Z11 o-sv -quiet -O0
+valu_32bit_tb
+R1
+!i10b 1
+!s100 nbcBoe7ZFdnKP@C^kN6iJ0
+IN3;Y`L^;dSPaSFgP]5S?d1
+VmU[Y^481oF][5ndYfB3ET3
+R2
+S1
+R3
+R4
+R5
+R6
+L0 44
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!s101 -O0
+R11
+valu_control
+R1
+!i10b 1
+!s100 ?c;oZ?>cDgoVKcmS;<11M1
+I?akSThie7LdPQ^VR>OP>81
+V?cK9@OYnGCQW9HLU03;Md3
+!s105 alu_control_sv_unit
+S1
+R3
+w1778236703
+8C:/Users/USER/Documents/MIPS_Project/alu_control.sv
+FC:/Users/USER/Documents/MIPS_Project/alu_control.sv
+L0 9
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!s101 -O0
+R11
+vdmem
+R1
+!i10b 1
+!s100 CLlP=VlMR:i340QnQXL<10
+Io<zgKfVnzoGENIe=BoOS]0
+V09OGzlPeaYS`EJSH7=l6?2
+Z12 !s105 mips_processor_sv_unit
+S1
+R3
+Z13 w1778237086
+Z14 8C:/Users/USER/Documents/MIPS_Project/mips_processor.sv
+Z15 FC:/Users/USER/Documents/MIPS_Project/mips_processor.sv
+L0 89
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!s101 -O0
+R11
+vimem
+R1
+!i10b 1
+!s100 kP0nIAeQ;ec5QC4]HFOmD3
+I5Q88<M5TZMUoU8I`1RJ5V2
+V_eezcn[fFK3m2C;IUCfT<1
+R12
+S1
+R3
+R13
+R14
+R15
+L0 51
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!s101 -O0
+R11
+vmaindec
+R1
+!i10b 1
+!s100 1]F9Qz]4GbJKSh`Hi<ghX2
+IWe>j@VD1J7U6zOV>^L<E81
+VblMkDZdF]UTJf]k4DjYBB2
+R12
+S1
+R3
+R13
+R14
+R15
+L0 117
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!s101 -O0
+R11
+vmips_processor
+R1
+!i10b 1
+!s100 1]J1<SW2f0nzbWoGkW@>92
+I6=RBNGNU^2]EM2f`6o1Lj3
+VF3CmeGf[F3QE9UL<G<2h11
+R12
+S1
+R3
+R13
+R14
+R15
+L0 145
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!s101 -O0
+R11
+vmips_processor_tb
+R1
+!i10b 1
+!s100 cBmdImm^UQO=>3nS;P2o^1
+IH9T<DD9L01_b1ImJakg<h3
+V>8b^W2zk?OOT<_<dSmRzO1
+!s105 mips_processor_tb_sv_unit
+S1
+R3
+w1778357067
+8C:/Users/USER/Documents/MIPS_Project/mips_processor_tb.sv
+FC:/Users/USER/Documents/MIPS_Project/mips_processor_tb.sv
+L0 6
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!s101 -O0
+R11
+vmux2to1_32bit
+R1
+!i10b 1
+!s100 ;Ybgz1h;o@BD50[^c[@763
+IaUD>ffe>PdQRnB^Ri_;<81
+VPV^lm0B1ohOG<=P20^U4O1
+R12
+S1
+R3
+R13
+R14
+R15
+L0 7
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!s101 -O0
+R11
+vregfile
+R1
+!i10b 1
+!s100 KaIE<7ii5QMPdebP=[K@B0
+IlWTP@DOGRfKT`:]dI>1_G2
+Vl>JD@?ekG29h[?;gM3Z2H1
+R12
+S1
+R3
+R13
+R14
+R15
+L0 18
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!s101 -O0
+R11
+vsign_extend
+R1
+!i10b 1
+!s100 E>_bC51V5CoWiB`H?=@3?3
+IlO4zFFDL;R^9E7=gGe:LE3
+V?gT]P2gi08n4ZXLL<c1=M1
+R12
+S1
+R3
+R13
+R14
+R15
+L0 41
+R7
+r1
+!s85 0
+31
+R8
+R9
+R10
+!s101 -O0
+R11

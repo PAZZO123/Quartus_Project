@@ -16,6 +16,7 @@ module alu_control (
         case (ALUOp)
             2'b00: ALUcontrol = 3'b010; // LW/SW: ADD
             2'b01: ALUcontrol = 3'b110; // BEQ: SUB
+            2'b11: ALUcontrol = 3'b000; // ANDI: forced AND
             2'b10: begin                // R-type: use funct field
                 case (funct)
                     6'b100000: ALUcontrol = 3'b010; // ADD
